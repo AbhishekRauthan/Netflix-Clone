@@ -9,7 +9,7 @@ export class RowsComponent implements OnInit {
 
   constructor() { }
 
-  @Input() title: string;
+  @Input() title:string;
 
   ngOnInit(): void {
   }
