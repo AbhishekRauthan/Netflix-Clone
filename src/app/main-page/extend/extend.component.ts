@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import request from 'src/app/api-endpoints/api';
 
 @Component({
   selector: 'app-extend',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class ExtendComponent implements OnInit {
 
   constructor() { }
+
+  apiEndpoints() {
+    return request
+  }
 
   ngOnInit(): void {
   }

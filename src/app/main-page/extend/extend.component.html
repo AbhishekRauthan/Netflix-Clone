@@ -2,5 +2,11 @@
   Hello World
 </h1>
 
-<app-rows title="Netflix Originals"></app-rows>
-<app-rows title="Currently Watching"></app-rows>
+<app-rows title="Netflix Originals" [fetchUrl]="apiEndpoints().netflixOrignals"></app-rows>
+<app-rows title="Trending Now" [fetchUrl]="apiEndpoints().trending"></app-rows>
+<app-rows title="Top Rated" [fetchUrl]="apiEndpoints().topRated"></app-rows>
+<app-rows title="Action Movies" [fetchUrl]="apiEndpoints().action"></app-rows>
+<app-rows title="Comedy Movies" [fetchUrl]="apiEndpoints().comedy"></app-rows>
+<app-rows title="Horror Movies" [fetchUrl]="apiEndpoints().horror"></app-rows>
+<app-rows title="Romance Movies" [fetchUrl]="apiEndpoints().romance"></app-rows>
+<app-rows title="Documentries" [fetchUrl]="apiEndpoints().documntry"></app-rows>
