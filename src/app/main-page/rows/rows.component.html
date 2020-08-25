@@ -1,6 +1,6 @@
 <div class="row">
   <h3>{{title}}</h3>
   <div class="row_posters">
-    <img *ngFor="let data of dataArray" class="row_poster" [src]="posterUrl(data)" [alt]="data.original_name">
+    <img *ngFor="let data of dataArray" [class]="style()" [src]="imageUrl(data,isLargeRow)" [alt]="data.original_name">
   </div>
 </div>

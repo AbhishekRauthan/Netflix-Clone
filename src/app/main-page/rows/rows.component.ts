@@ -14,8 +14,9 @@ export class RowsComponent implements OnInit {
 
   @Input() title: string;
   @Input() fetchUrl: string;
+  @Input() isLargeRow = false;
 
-  imageUrl: string = 'https://images.tmdb.org/t/p/original'
+  imgUrl: string = 'https://images.tmdb.org/t/p/original'
 
   dataArray: MdData[] = [];
 
@@ -27,8 +28,16 @@ export class RowsComponent implements OnInit {
     })
   }
 
-  posterUrl(data:MdData) {
-    return `${this.imageUrl}${data.poster_path}`
+  imageUrl(data:MdData, isLarge:boolean) {
+    if (isLarge) {
+      
+      return `${this.imgUrl}${data.poster_path}`
+    }
+    return `${this.imgUrl}${data.backdrop_path}`
+  }
+
+  style() {
+    return `row_poster ${this.isLargeRow && "row_poster_large"}`
   }
 
 }
