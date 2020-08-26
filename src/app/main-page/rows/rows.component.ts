@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MainPageService } from '../main-page.service';
-import { MdData } from 'src/app/Interface/md-data';
+import { MdData, Res } from 'src/app/Interface/md-data';
 
 
 @Component({
@@ -21,16 +21,14 @@ export class RowsComponent implements OnInit {
   dataArray: MdData[] = [];
 
   ngOnInit(): void {
-    this.serv.getRows(this.fetchUrl).subscribe((res: any) => {
-      res.results.forEach(element => {
-        this.dataArray.push(element)
-      });
+    this.serv.getRows(this.fetchUrl).subscribe((res: Res) => {
+      this.dataArray = [...res.results]
     })
   }
 
-  imageUrl(data:MdData, isLarge:boolean) {
+  imageUrl(data: MdData, isLarge: boolean) {
     if (isLarge) {
-      
+
       return `${this.imgUrl}${data.poster_path}`
     }
     return `${this.imgUrl}${data.backdrop_path}`

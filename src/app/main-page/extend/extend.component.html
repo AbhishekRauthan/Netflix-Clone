@@ -1,6 +1,4 @@
-<h1>
-  Hello World
-</h1>
+<app-banner [originals]="apiEndpoints().netflixOrignals"></app-banner>
 
 <app-rows title="Netflix Originals" [fetchUrl]="apiEndpoints().netflixOrignals" [isLargeRow]="true"></app-rows>
 <app-rows title="Trending Now" [fetchUrl]="apiEndpoints().trending"></app-rows>
