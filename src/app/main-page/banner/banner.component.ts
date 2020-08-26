@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MdData, Res } from 'src/app/Interface/md-data';
 import { MainPageService } from '../main-page.service';
 
@@ -7,7 +7,7 @@ import { MainPageService } from '../main-page.service';
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent implements OnInit {
+export class BannerComponent implements OnChanges {
 
   constructor(private serve: MainPageService) { }
 
@@ -15,16 +15,20 @@ export class BannerComponent implements OnInit {
 
   bannerDetails: MdData;
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.serve.getRows(this.originals).subscribe((res: Res) => {
       this.bannerDetails = res.results[
-        Math.floor(Math.random() * (res.results.length - 1))
+        Math.floor(Math.random() * res.results.length - 1)
       ]
     });
   }
 
   backImg() {
     return `https://images.tmdb.org/t/p/original${this.bannerDetails?.backdrop_path}`
+  }
+
+  truncate(str:string, n:number) {
+    return str.length > n ? str.substr(0, n-1) + '...' : str;
   }
 
 }
