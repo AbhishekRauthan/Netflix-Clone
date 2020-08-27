@@ -1,5 +1,10 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<!-- Banner  -->
 <app-banner [originals]="apiEndpoints().netflixOrignals"></app-banner>
 
+<!-- Rows To display Various TV Shows and Movies -->
 <app-rows title="Netflix Originals" [fetchUrl]="apiEndpoints().netflixOrignals" [isLargeRow]="true"></app-rows>
 <app-rows title="Trending Now" [fetchUrl]="apiEndpoints().trending"></app-rows>
 <app-rows title="Top Rated" [fetchUrl]="apiEndpoints().topRated"></app-rows>
